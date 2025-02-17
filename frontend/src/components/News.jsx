@@ -6,7 +6,7 @@ const News = ({ news }) => {
   return (
     <Link
       to={"/newsDetail?id"}
-      className="bg-offWhite w-full h-96 shadow shadow-shadowGray"
+      className="bg-offWhite w-full h-80 shadow-lg shadow-shadowGray"
     >
       <img src={image} alt="" className="h-2/3 w-full object-cover" />
       <div className="h-1/3 px-4 p-2 flex flex-col justify-evenly">

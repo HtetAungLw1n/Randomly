@@ -15,12 +15,15 @@ const BreakingNews = ({ breakingNews }) => {
             <div className="text-3xl font-semibold mt-0 lg:mt-4 uppercase">
               {title}
             </div>
-            <div className="mt-8 hidden lg:block font-lato text-coolGray">
-              <p className="line-clamp-5">{description}</p>
-              <Link to={""} className="text-luxRed text-lg">
-                see more
-              </Link>
+            <div className="my-8 hidden lg:block font-lato text-coolGray">
+              <p className="line-clamp-6">{description}</p>
             </div>
+            <Link
+              to={""}
+              className="bg-luxRed text-offWhite px-4 py-3 text-lg hidden lg:inline-block"
+            >
+              see more
+            </Link>
           </div>
           {/* author + date  */}
           <div className="text-coolGray mt-4 lg:mt-0 font-lato text-sm">
