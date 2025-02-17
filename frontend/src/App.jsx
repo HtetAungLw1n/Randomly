@@ -2,7 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import Main from "./layout/Main";
 import Home, { loader as NewsLoader } from "./pages/Home";
-import NewsForm from "./components/NewsForm";
+import Create from "./layout/Create";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/create-blog",
-        element: <NewsForm />,
+        element: <Create />,
       },
     ],
   },
