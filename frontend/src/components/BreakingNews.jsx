@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const BreakingNews = () => {
+const BreakingNews = ({ breakingNews }) => {
+  const { image, title, description, date } = breakingNews;
   return (
     <>
       {/* breaking new section  */}
@@ -10,39 +12,25 @@ const BreakingNews = () => {
           <div>
             {/* content  */}
             <div className="text-luxRed">Breaking News</div>
-            <div className="text-3xl font-semibold mt-0 lg:mt-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-              cum asperiores
+            <div className="text-3xl font-semibold mt-0 lg:mt-4 uppercase">
+              {title}
             </div>
-            <div className="mt-8 hidden lg:block font-lato text-coolGray text-balance">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-              inventore impedit optio est tenetur voluptas fugit possimus,
-              provident voluptates rem sit eos, dignissimos odit. Quo vitae
-              excepturi nemo minima obcaecati iusto facilis unde aliquam ut
-              consequuntur! Tempore enim consectetur hic deserunt doloribus,
-              consequatur maiores sapiente repellat quia repudiandae saepe,
-              provident vitae aspernatur. In, ratione illum vero nemo eligendi
-              esse impedit!
+            <div className="mt-8 hidden lg:block font-lato text-coolGray">
+              <p className="line-clamp-5">{description}</p>
+              <Link to={""} className="text-luxRed text-lg">
+                see more
+              </Link>
             </div>
           </div>
           {/* author + date  */}
-          <div>
-            <div className="text-coolGray mt-4 lg:mt-0 font-lato text-sm">
-              16/2/2025
-            </div>
+          <div className="text-coolGray mt-4 lg:mt-0 font-lato text-sm">
+            {date}
           </div>
         </div>
         {/* text area  */}
 
         {/* img area  */}
-
-        <img
-          src="https://img.freepik.com/premium-photo/abstract-design-pattern-background_85347-6492.jpg"
-          alt=""
-          className="w-full lg:w-1/2"
-        />
-
-        {/* img area  */}
+        <img src={image} alt="" className="w-full lg:w-1/2" />
       </div>
     </>
   );
