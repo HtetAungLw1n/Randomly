@@ -1,14 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-warmBeige: #f4ece6;
-  --color-warmTaupe: #bfa89e;
-  --color-mutedEmberOrange: #d65a31;
-  --color-charcoalGray: #3e3d42;
-  --color-creamySand: #e8d8c4;
+  --color-offWhite: #e6e6e6;
+  --color-luxGold: #e3c04b;
+  --color-luxRed: #8c0e0e;
+  --color-charcoalBlack: #3e3d42;
+  --color-coolGray: #767676;
+  --color-shadowGray: #dddddd;
 
   --default-font-family: "Playfair Display", "serif";
-  --font-inter: "Inter";
+  --font-lato: "Lato";
+}
+
+.active {
+  color: #e3c04b;
 }
 
 /* h1 ko text-3xl */
