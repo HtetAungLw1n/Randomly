@@ -2,7 +2,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import Main from "./layout/Main";
 import Home, { loader as NewsLoader } from "./pages/Home";
-import Create from "./layout/Create";
+import Create from "./pages/Create";
+import Detail, { loader as NewsDetailLoader } from "./pages/Detail";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,11 @@ const router = createBrowserRouter([
       {
         path: "/create-blog",
         element: <Create />,
+      },
+      {
+        path: "/news-detail/:id",
+        element: <Detail />,
+        loader: NewsDetailLoader,
       },
     ],
   },
