@@ -1,9 +1,9 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import Main from "./layout/Main";
-import Home, { loader as NewsLoader } from "./pages/Home";
-import Create from "./pages/Create";
-import Detail, { loader as NewsDetailLoader } from "./pages/Detail";
+import Home, { loader as newsLoader } from "./pages/Home";
+import Create, { action as createNewsAction } from "./pages/Create";
+import Detail, { loader as newsDetailLoader } from "./pages/Detail";
 
 const router = createBrowserRouter([
   {
@@ -13,16 +13,17 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        loader: NewsLoader,
+        loader: newsLoader,
       },
       {
         path: "/create-blog",
         element: <Create />,
+        action: createNewsAction,
       },
       {
         path: "/news-detail/:id",
         element: <Detail />,
-        loader: NewsDetailLoader,
+        loader: newsDetailLoader,
       },
     ],
   },
