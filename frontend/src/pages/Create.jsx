@@ -2,6 +2,7 @@ import React from "react";
 import NewsForm from "../components/NewsForm";
 import uuid from "react-uuid";
 import { redirect } from "react-router-dom";
+import { getToken } from "../ulti/auth";
 
 const Create = () => {
   return (
@@ -15,6 +16,8 @@ export default Create;
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
+
+  const token = getToken(); // localStorage ka token ko yu
 
   const newsData = {
     id: uuid(),
@@ -30,6 +33,7 @@ export const action = async ({ request }) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
     },
     body: JSON.stringify(newsData),
   });
@@ -38,5 +42,5 @@ export const action = async ({ request }) => {
     // error code
   }
 
-  return response;
+  return redirect("/");
 };
