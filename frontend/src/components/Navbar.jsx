@@ -13,8 +13,8 @@ const Navbar = () => {
           <NavLink to={"/create-blog"} className="px-4 py-2">
             Create
           </NavLink>
-          <NavLink to={"/login"} className="px-4 py-2">
-            Login
+          <NavLink to={"/editor?mode=login"} className="px-4 py-2">
+            Editor
           </NavLink>
         </div>
       </div>

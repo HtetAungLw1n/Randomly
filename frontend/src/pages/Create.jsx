@@ -38,5 +38,5 @@ export const action = async ({ request }) => {
     // error code
   }
 
-  return redirect("/");
+  return response;
 };
