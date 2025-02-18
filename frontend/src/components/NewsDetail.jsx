@@ -12,9 +12,11 @@ const NewsDetail = ({ data }) => {
     <>
       <div className="bg-offWhite w-full lg:w-1/2 shadow-lg shadow-shadowGray">
         <div className="py-5">
-          <div className="text-xl lg:text-3xl font-bold uppercase px-5 flex items-start gap-2">
-            {title}
-            <Link to={"/"} className="w-20 text-luxRed">
+          <div className="px-5 flex items-start justify-between">
+            <div className="text-xl lg:text-3xl font-bold uppercase w-4/5">
+              {title}
+            </div>
+            <Link to={"/"} className="w-5 text-luxRed">
               <XMarkIcon />
             </Link>
           </div>
