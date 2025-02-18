@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { CalendarIcon } from "@heroicons/react/24/solid";
 
 const BreakingNews = ({ breakingNews }) => {
   const { id, image, title, description, date } = breakingNews;
@@ -26,7 +27,8 @@ const BreakingNews = ({ breakingNews }) => {
             </Link>
           </div>
           {/* author + date  */}
-          <div className="text-coolGray mt-4 lg:mt-0 font-lato text-sm">
+          <div className="text-coolGray mt-4 lg:mt-0 font-lato text-sm flex items-center gap-2">
+            <CalendarIcon className="w-5 h-5" />
             {date}
           </div>
         </div>

@@ -1,4 +1,10 @@
+import {
+  XMarkIcon,
+  CalendarDaysIcon,
+  CalendarIcon,
+} from "@heroicons/react/24/solid";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NewsDetail = ({ data }) => {
   const { image, title, description, date } = data;
@@ -6,8 +12,16 @@ const NewsDetail = ({ data }) => {
     <>
       <div className="bg-offWhite w-full lg:w-1/2 shadow-lg shadow-shadowGray">
         <div className="py-5">
-          <div className="text-3xl font-bold uppercase px-5">{title}</div>
-          <div className="text-luxRed text-sm my-2 px-5">{date}</div>
+          <div className="text-xl lg:text-3xl font-bold uppercase px-5 flex items-start gap-2">
+            {title}
+            <Link to={"/"} className="w-20 text-luxRed">
+              <XMarkIcon />
+            </Link>
+          </div>
+          <div className="text-luxRed text-sm my-2 mb-4 px-5 flex items-center gap-2">
+            <CalendarIcon className="w-5" />
+            {date}
+          </div>
           <img src={image} alt="" />
           <div className="text-balance mt-4 px-5">{description}</div>
           <div className="mt-8 text-xl float-right px-5">
