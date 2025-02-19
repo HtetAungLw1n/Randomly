@@ -27,8 +27,6 @@ export const action = async ({ request }) => {
     date: formData.get("date"),
   };
 
-  console.log(newsData);
-
   const response = await fetch("http://localhost:8080/posts", {
     method: "POST",
     headers: {
@@ -39,7 +37,7 @@ export const action = async ({ request }) => {
   });
 
   if (!response.ok) {
-    // error code
+    throw new Response("Failed to create News", { status: response.status });
   }
 
   return redirect("/");

@@ -24,7 +24,7 @@ export const loader = async () => {
   const response = await fetch("http://localhost:8080/posts");
 
   if (!response.ok) {
-    // code
+    throw new Response("Failed to fetch News", { status: response.status });
   }
 
   const data = await response.json();

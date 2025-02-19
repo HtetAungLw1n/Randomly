@@ -44,7 +44,7 @@ export const action = async ({ request }) => {
   }
 
   if (!response.ok) {
-    // code
+    throw new Response("Error occurs", { status: response.status });
   }
 
   //token yuu tar
