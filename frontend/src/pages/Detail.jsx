@@ -1,10 +1,10 @@
 import React from "react";
-import { redirect, useLoaderData } from "react-router-dom";
+import { redirect, useRouteLoaderData } from "react-router-dom";
 import NewsDetail from "../components/NewsDetail";
 import { getToken } from "../ulti/auth";
 
 const Detail = () => {
-  const data = useLoaderData();
+  const data = useRouteLoaderData("news-detail");
 
   return (
     <section className="container mx-auto pt-[15vh] pb-20 px-4 lg:px-0 flex justify-center items-center">

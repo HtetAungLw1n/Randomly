@@ -20,7 +20,7 @@ const BreakingNews = ({ breakingNews }) => {
               <p className="line-clamp-6">{description}</p>
             </div>
             <Link
-              to={`/news-detail/${id}`}
+              to={`${id}`}
               className="bg-luxRed text-offWhite px-4 py-3 text-lg hidden lg:inline-block"
             >
               see more
@@ -35,7 +35,7 @@ const BreakingNews = ({ breakingNews }) => {
         {/* text area  */}
 
         {/* img area  */}
-        <Link to={`/news-detail/${id}`} className="w-full lg:w-1/2 h-full">
+        <Link to={`${id}`} className="w-full lg:w-1/2 h-full">
           <img src={image} alt="" className="h-full object-cover" />
         </Link>
       </div>

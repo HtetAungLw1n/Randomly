@@ -9,6 +9,7 @@ import Detail, {
   loader as newsDetailLoader,
 } from "./pages/Detail";
 import Error from "./pages/Error";
+import Edit from "./pages/Edit";
 
 const router = createBrowserRouter([
   {
@@ -32,10 +33,17 @@ const router = createBrowserRouter([
         action: editorAction,
       },
       {
-        path: "/news-detail/:id",
-        element: <Detail />,
+        path: ":id",
+        id: "news-detail",
         loader: newsDetailLoader,
-        action: newsDeleteAction,
+        children: [
+          {
+            index: true,
+            element: <Detail />,
+            action: newsDeleteAction,
+          },
+          { path: "edit-news", element: <Edit /> },
+        ],
       },
     ],
   },

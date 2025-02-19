@@ -6,7 +6,7 @@ const News = ({ news }) => {
   const { id, image, title, date } = news;
   return (
     <Link
-      to={`/news-detail/${id}`}
+      to={`${id}`}
       className="bg-offWhite w-full h-max shadow-lg shadow-shadowGray hover:shadow-red-100 duration-150 transition"
     >
       <img src={image} alt="" className="h-2/3 w-full object-cover" />

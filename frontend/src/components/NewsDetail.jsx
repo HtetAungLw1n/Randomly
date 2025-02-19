@@ -33,7 +33,10 @@ const NewsDetail = ({ data }) => {
           <img src={image} alt="" className="w-full" />
           <div className="text-balance mt-4 px-5">{description}</div>
           <div className="mt-8 text-xl float-right px-5">
-            <Link to={`/${id}`} className="bg-luxRed text-offWhite px-4 py-2">
+            <Link
+              to={`edit-news`}
+              className="bg-luxRed text-offWhite px-4 py-2"
+            >
               Edit
             </Link>
             <button
