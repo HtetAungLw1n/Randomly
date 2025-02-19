@@ -36,7 +36,7 @@ const BreakingNews = ({ breakingNews }) => {
 
         {/* img area  */}
         <Link to={`${id}`} className="w-full lg:w-1/2 h-full">
-          <img src={image} alt="" className="h-full object-cover" />
+          <img src={image} alt="" className="h-full w-full object-cover" />
         </Link>
       </div>
     </>

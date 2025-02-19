@@ -1,8 +1,11 @@
 import React from "react";
 import { Form, Link, useActionData } from "react-router-dom";
 import { ArrowUturnLeftIcon } from "@heroicons/react/24/solid";
+import uuid from "react-uuid";
+import { redirect } from "react-router-dom";
+import { getToken } from "../ulti/auth";
 
-const NewsForm = ({ header, btnText, oldNewsData }) => {
+const NewsForm = ({ header, btnText, oldNewsData, method }) => {
   const data = useActionData(); //this code will work if error 422 occur
 
   return (
@@ -16,7 +19,7 @@ const NewsForm = ({ header, btnText, oldNewsData }) => {
           </Link>
         )}
       </div>
-      <Form method="post" className="mt-4">
+      <Form method={method} className="mt-4">
         <label htmlFor="title" className="block font-lato">
           Title
         </label>
@@ -80,3 +83,46 @@ const NewsForm = ({ header, btnText, oldNewsData }) => {
 };
 
 export default NewsForm;
+
+// create action and edit action
+export const action = async ({ request, params }) => {
+  const formData = await request.formData();
+
+  const method = request.method; //get whot method form use
+
+  const token = getToken(); // localStorage ka token ko yu
+
+  const newsData = {
+    id: uuid(),
+    title: formData.get("title"),
+    description: formData.get("description"),
+    image: formData.get("image"),
+    date: formData.get("date"),
+  };
+
+  let url = "http://localhost:8080/posts";
+
+  if (method === "PATCH") {
+    const id = params.id;
+    url = `http://localhost:8080/posts/${id}`;
+  }
+
+  const response = await fetch(url, {
+    method,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+    body: JSON.stringify(newsData),
+  });
+
+  if (response.status === 422) {
+    return response;
+  }
+
+  if (!response.ok) {
+    throw new Response("Failed to create News", { status: response.status });
+  }
+
+  return redirect("/");
+};

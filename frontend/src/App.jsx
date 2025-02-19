@@ -2,7 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import Main from "./layout/Main";
 import Home, { loader as newsLoader } from "./pages/Home";
-import Create, { action as createNewsAction } from "./pages/Create";
+import Create from "./pages/Create";
 import Editor, { action as editorAction } from "./pages/Editor";
 import Detail, {
   action as newsDeleteAction,
@@ -10,12 +10,16 @@ import Detail, {
 } from "./pages/Detail";
 import Error from "./pages/Error";
 import Edit from "./pages/Edit";
+import {
+  action as newsEditAction,
+  action as newsCreateAction,
+} from "./components/NewsForm";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    errorElement: <Error />,
+    // errorElement: <Error />,
     children: [
       {
         index: true,
@@ -25,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: "/create-blog",
         element: <Create />,
-        action: createNewsAction,
+        action: newsCreateAction,
       },
       {
         path: "/editor",
@@ -42,7 +46,7 @@ const router = createBrowserRouter([
             element: <Detail />,
             action: newsDeleteAction,
           },
-          { path: "edit-news", element: <Edit /> },
+          { path: "edit-news", element: <Edit />, action: newsEditAction },
         ],
       },
     ],
