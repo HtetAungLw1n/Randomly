@@ -4,7 +4,10 @@ import Main from "./layout/Main";
 import Home, { loader as newsLoader } from "./pages/Home";
 import Create, { action as createNewsAction } from "./pages/Create";
 import Editor, { action as editorAction } from "./pages/Editor";
-import Detail, { loader as newsDetailLoader } from "./pages/Detail";
+import Detail, {
+  action as newsDeleteAction,
+  loader as newsDetailLoader,
+} from "./pages/Detail";
 import Error from "./pages/Error";
 
 const router = createBrowserRouter([
@@ -32,6 +35,7 @@ const router = createBrowserRouter([
         path: "/news-detail/:id",
         element: <Detail />,
         loader: newsDetailLoader,
+        action: newsDeleteAction,
       },
     ],
   },

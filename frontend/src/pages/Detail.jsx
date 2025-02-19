@@ -1,6 +1,7 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { redirect, useLoaderData } from "react-router-dom";
 import NewsDetail from "../components/NewsDetail";
+import { getToken } from "../ulti/auth";
 
 const Detail = () => {
   const data = useLoaderData();
@@ -26,4 +27,23 @@ export const loader = async ({ request, params }) => {
   const data = await response.json();
 
   return data.post;
+};
+
+//this is delete action
+export const action = async ({ request, params }) => {
+  const token = getToken();
+  const response = await fetch(`http://localhost:8080/posts/${params.id}`, {
+    method: request.method,
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Response("Deleting Failed", {
+      status: response.status,
+    });
+  }
+
+  return redirect("/");
 };

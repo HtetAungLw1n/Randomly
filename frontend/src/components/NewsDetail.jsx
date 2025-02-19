@@ -1,13 +1,19 @@
-import {
-  XMarkIcon,
-  CalendarDaysIcon,
-  CalendarIcon,
-} from "@heroicons/react/24/solid";
+import { XMarkIcon, CalendarIcon } from "@heroicons/react/24/solid";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useSubmit } from "react-router-dom";
 
 const NewsDetail = ({ data }) => {
-  const { image, title, description, date } = data;
+  const { id, image, title, description, date } = data;
+
+  const submit = useSubmit();
+  //deleting news
+  const newsDeleteHandler = () => {
+    const confirmStatus = window.confirm("Are you sure you want to delete !");
+
+    if (confirmStatus) {
+      submit(null, { method: "DELETE" });
+    }
+  };
   return (
     <>
       <div className="bg-offWhite w-full lg:w-1/2 shadow-lg shadow-shadowGray">
@@ -24,11 +30,18 @@ const NewsDetail = ({ data }) => {
             <CalendarIcon className="w-5" />
             {date}
           </div>
-          <img src={image} alt="" />
+          <img src={image} alt="" className="w-full" />
           <div className="text-balance mt-4 px-5">{description}</div>
           <div className="mt-8 text-xl float-right px-5">
-            <button className="bg-luxRed text-offWhite px-4 py-2">Edit</button>
-            <button className="text-luxRed px-4 py-2">Delete</button>
+            <Link to={`/${id}`} className="bg-luxRed text-offWhite px-4 py-2">
+              Edit
+            </Link>
+            <button
+              className="text-luxRed px-4 py-2"
+              onClick={newsDeleteHandler}
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>
