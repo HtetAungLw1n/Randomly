@@ -36,6 +36,10 @@ export const action = async ({ request }) => {
     body: JSON.stringify(newsData),
   });
 
+  if (response.status === 422) {
+    return response;
+  }
+
   if (!response.ok) {
     throw new Response("Failed to create News", { status: response.status });
   }
