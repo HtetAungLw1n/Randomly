@@ -7,7 +7,7 @@ const News = ({ news }) => {
   return (
     <Link
       to={`${id}`}
-      className="bg-offWhite w-full h-max shadow-lg shadow-shadowGray hover:shadow-red-100 duration-150 transition"
+      className="bg-offWhite w-full h-full shadow-lg shadow-shadowGray hover:shadow-red-100 duration-150 transition"
     >
       <img src={image} alt="" className="h-2/3 w-full object-cover" />
       <div className="h-1/3 px-4 p-2 flex flex-col justify-evenly">

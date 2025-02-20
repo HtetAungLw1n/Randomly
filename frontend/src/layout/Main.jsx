@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { getExpDuration } from "../ulti/auth";
 import Loading from "../loading/Loading";
+import Footer from "../components/Footer";
 
 const Main = () => {
   //this is for loading
@@ -39,6 +40,8 @@ const Main = () => {
     <>
       <Navbar />
       {navigation.state === "loading" ? <Loading /> : <Outlet />}
+
+      <Footer />
     </>
   );
 };
