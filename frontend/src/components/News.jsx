@@ -15,7 +15,7 @@ const News = ({ news }) => {
           <CalendarIcon className="w-5 h-5" />
           {date}
         </div>
-        <div className="font-semibold line-clamp-3 text-balance uppercase">
+        <div className="font-semibold line-clamp-3 text-balance uppercase font-lato">
           {title}
         </div>
       </div>

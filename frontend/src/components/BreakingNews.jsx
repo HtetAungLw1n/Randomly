@@ -13,10 +13,10 @@ const BreakingNews = ({ breakingNews }) => {
           <div>
             {/* content  */}
             <div className="text-luxRed">Breaking News</div>
-            <div className="text-xl lg:text-3xl font-bold mt-0 lg:mt-4 uppercase">
+            <div className="text-xl lg:text-3xl font-bold mt-0 lg:mt-4 uppercase font-lato">
               {title}
             </div>
-            <div className="my-8 hidden lg:block font-lato text-coolGray">
+            <div className="my-8 hidden lg:block text-coolGray">
               <p className="line-clamp-6">{description}</p>
             </div>
             <Link
