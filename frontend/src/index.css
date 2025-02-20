@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./loading/AuthLoading.css";
+@import "./loading/Loading.css";
 
 @theme {
   --color-offWhite: #e6e6e6;
@@ -15,6 +16,7 @@
 
 .active {
   color: #e3c04b;
+  font-weight: bold;
 }
 
 /* h1 ko text-3xl */

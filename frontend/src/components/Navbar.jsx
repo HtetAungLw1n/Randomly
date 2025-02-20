@@ -1,7 +1,9 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useRouteLoaderData } from "react-router-dom";
 
 const Navbar = () => {
+  const isToken = useRouteLoaderData("root");
+
   return (
     <section className="bg-luxRed text-white w-full fixed">
       <div className="container mx-auto py-4 flex justify-between items-center px-4 pl-8">
@@ -10,12 +12,24 @@ const Navbar = () => {
           <NavLink to={"/"} className="px-4 py-2">
             News
           </NavLink>
-          <NavLink to={"/create-blog"} className="px-4 py-2">
-            Create
-          </NavLink>
-          <NavLink to={"/editor?mode=login"} className="px-4 py-2">
-            Editor
-          </NavLink>
+
+          {isToken && (
+            <NavLink to={"/create-news"} className="px-4 py-2">
+              Create
+            </NavLink>
+          )}
+
+          {!isToken && (
+            <NavLink to={"/editor?mode=login"} className="px-4 py-2">
+              Editor
+            </NavLink>
+          )}
+
+          {isToken && (
+            <NavLink to={"/logout"} className="px-4 py-2">
+              Logout
+            </NavLink>
+          )}
         </div>
       </div>
     </section>

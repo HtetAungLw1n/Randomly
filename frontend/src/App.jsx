@@ -14,12 +14,16 @@ import {
   action as newsEditAction,
   action as newsCreateAction,
 } from "./components/NewsForm";
+import { loader as logoutLoader } from "./pages/Logout";
+import { checkTokenLoader, tokenLoader } from "./ulti/auth";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    id: "root",
     element: <Main />,
     // errorElement: <Error />,
+    loader: tokenLoader,
     children: [
       {
         index: true,
@@ -27,15 +31,17 @@ const router = createBrowserRouter([
         loader: newsLoader,
       },
       {
-        path: "/create-blog",
+        path: "/create-news",
         element: <Create />,
         action: newsCreateAction,
+        loader: checkTokenLoader,
       },
       {
         path: "/editor",
         element: <Editor />,
         action: editorAction,
       },
+      { path: "/logout", loader: logoutLoader },
       {
         path: ":id",
         id: "news-detail",
@@ -46,7 +52,12 @@ const router = createBrowserRouter([
             element: <Detail />,
             action: newsDeleteAction,
           },
-          { path: "edit-news", element: <Edit />, action: newsEditAction },
+          {
+            path: "edit-news",
+            element: <Edit />,
+            action: newsEditAction,
+            loader: checkTokenLoader,
+          },
         ],
       },
     ],

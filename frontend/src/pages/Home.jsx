@@ -6,9 +6,8 @@ import { useLoaderData } from "react-router-dom";
 const Home = () => {
   const data = useLoaderData();
 
-  const breakingNews = data[0];
-
-  const regularNews = data.slice(1);
+  const breakingNews = data.length > 0 ? data[0] : null;
+  const regularNews = data.length > 1 ? data.slice(1) : [];
 
   return (
     <section className="container mx-auto pt-[15vh] px-4 lg:px-0">

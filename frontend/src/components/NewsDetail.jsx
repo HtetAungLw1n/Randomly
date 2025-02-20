@@ -1,9 +1,12 @@
 import { XMarkIcon, CalendarIcon } from "@heroicons/react/24/solid";
 import React from "react";
-import { Link, useSubmit } from "react-router-dom";
+import { Link, useRouteLoaderData, useSubmit } from "react-router-dom";
 
 const NewsDetail = ({ data }) => {
-  const { id, image, title, description, date } = data;
+  //button display or not
+  const isToken = useRouteLoaderData("root");
+
+  const { image, title, description, date } = data;
 
   const submit = useSubmit();
   //deleting news
@@ -32,20 +35,23 @@ const NewsDetail = ({ data }) => {
           </div>
           <img src={image} alt="" className="w-full" />
           <div className="text-balance mt-4 px-5">{description}</div>
-          <div className="mt-8 text-xl float-right px-5">
-            <Link
-              to={`edit-news`}
-              className="bg-luxRed text-offWhite px-4 py-2"
-            >
-              Edit
-            </Link>
-            <button
-              className="text-luxRed px-4 py-2"
-              onClick={newsDeleteHandler}
-            >
-              Delete
-            </button>
-          </div>
+
+          {isToken && (
+            <div className="mt-8 text-xl float-right px-5">
+              <Link
+                to={`edit-news`}
+                className="bg-luxRed text-offWhite px-4 py-2"
+              >
+                Edit
+              </Link>
+              <button
+                className="text-luxRed px-4 py-2 cursor-pointer"
+                onClick={newsDeleteHandler}
+              >
+                Delete
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </>
