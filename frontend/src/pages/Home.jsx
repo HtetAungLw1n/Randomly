@@ -24,7 +24,7 @@ const Home = () => {
 export default Home;
 
 export const loader = async () => {
-  const response = await fetch("http://localhost:8080/posts");
+  const response = await fetch(`${import.meta.env.VITE_APP_DOMAIN}/posts`);
 
   if (!response.ok) {
     throw new Response("Failed to fetch News", { status: response.status });
