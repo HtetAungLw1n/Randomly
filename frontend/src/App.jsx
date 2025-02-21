@@ -16,13 +16,14 @@ import {
 } from "./components/NewsForm";
 import { loader as logoutLoader } from "./pages/Logout";
 import { checkTokenLoader, tokenLoader } from "./ulti/auth";
+import Key, { action as keyConfirmAction } from "./pages/Key";
 
 const router = createBrowserRouter([
   {
     path: "/",
     id: "root",
     element: <Main />,
-    // errorElement: <Error />,
+    errorElement: <Error />,
     loader: tokenLoader,
     children: [
       {
@@ -42,6 +43,7 @@ const router = createBrowserRouter([
         action: editorAction,
       },
       { path: "/logout", loader: logoutLoader },
+      { path: "/key", element: <Key />, action: keyConfirmAction },
       {
         path: ":id",
         id: "news-detail",

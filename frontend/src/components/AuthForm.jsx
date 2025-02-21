@@ -68,10 +68,7 @@ const AuthForm = () => {
               <>
                 <div className="text-coolGray my-2 text-sm">
                   create a new account?
-                  <Link
-                    to={"/editor?mode=signup"}
-                    className="text-luxRed ml-2 underline"
-                  >
+                  <Link to={"/key"} className="text-luxRed ml-2 underline">
                     Register
                   </Link>
                 </div>
