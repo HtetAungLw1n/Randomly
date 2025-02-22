@@ -7,7 +7,7 @@ const BreakingNews = ({ breakingNews }) => {
   return (
     <>
       {/* breaking new section  */}
-      <div className="bg-offWhite h-[55vh] flex flex-col-reverse lg:flex-row justify-between shadow-lg shadow-shadowGray">
+      <div className="bg-offWhite h-[500px] flex flex-col-reverse lg:flex-row justify-between shadow-lg shadow-shadowGray">
         {/* text area  */}
         <div className="px-4 lg:px-8 py-4 lg:w-1/2 flex flex-col justify-between">
           <div>
@@ -17,7 +17,7 @@ const BreakingNews = ({ breakingNews }) => {
               {title}
             </div>
             <div className="my-8 hidden lg:block text-coolGray">
-              <p className="line-clamp-6">{description}</p>
+              <p className="line-clamp-3">{description}</p>
             </div>
             <Link
               to={`${id}`}
