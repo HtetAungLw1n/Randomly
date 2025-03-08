@@ -18,6 +18,10 @@ import { loader as logoutLoader } from "./pages/Logout";
 import { checkTokenLoader, tokenLoader } from "./ulti/auth";
 import Key, { action as keyConfirmAction } from "./pages/Key";
 
+const Logout = () => {
+  return <div>Logging out...</div>; // Placeholder to prevent React Router warnings
+};
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,7 +46,11 @@ const router = createBrowserRouter([
         element: <Editor />,
         action: editorAction,
       },
-      { path: "/logout", loader: logoutLoader },
+      {
+        path: "/logout",
+        element: <Logout />,
+        loader: logoutLoader,
+      },
       { path: "/key", element: <Key />, action: keyConfirmAction },
       {
         path: ":id",
