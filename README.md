@@ -1,12 +1,12 @@
-# 📰 Randomly — Your Real-Time
+# 📰 Randomly — Your Real-Time News Website
 
 Randomly is a sleek and responsive web application that transforms how users discover and engage with breaking news. With seamless API integrations, dynamic routing, and fast data loading via React Loaders & Actions, Randomly delivers up-to-the-second news tailored for a modern digital audience.
 
 Crafted using React, TailwindCSS, and a Node.js backend, this platform offers a clean reading experience, user authentication, and full CRUD functionality for admins. With a refined visual identity and responsive design, Randomly ensures the news fits beautifully on every screen.
 
-## 🧠 CMS-powered news aggregator
-
 ## 🚀 Key Features
+
+- 🧠 CMS-powered news aggregator
 
 - 🗞️ **Real-Time News Feed**  
   Browse the latest headlines with visually engaging cards that display titles, images, and summaries pulled from external news APIs.
